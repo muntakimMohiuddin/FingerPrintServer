@@ -1,0 +1,5 @@
+.idea
+templates
+
+# Project exclude paths
+/target/

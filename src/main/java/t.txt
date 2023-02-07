@@ -1,0 +1,47 @@
+" '"+personInfo.get("REFERENCE_NO")    + "', "+
+" '"+personInfo.get("CREATION_DATE")   + "', "+
+" '"+personInfo.get("CREATED_BY")      + "', "+
+" '"+personInfo.get("DATE_OF_ENTRY")   + "', "+
+" '"+personInfo.get("MACHINE_ID")      + "', "+
+" '"+personInfo.get("NAME_ENG ")       + "', "+
+" '"+personInfo.get("FATHER_NAME_ENG") + "', "+
+" '"+personInfo.get("MOTHER_NAME_ENG") + "', "+
+" '"+personInfo.get("DATE_OF_BIRTH")   + "', "+
+" '"+personInfo.get("PLACE_OF_BIRTH ") + "', "+
+" '"+personInfo.get("GENDER")          + "', "+
+" '"+personInfo.get("RELIGION ")       + "', "+
+" '"+personInfo.get("NATIONALITY ")    + "', "+
+" "+  personInfo.get("AGE")             + ", "+
+" '"+personInfo.get("COUNTRY")         + "', "+
+" '"+personInfo.get("ADDRESS")         + "', "+
+" '"+personInfo.get("VILLAGE")         + "', "+
+" '"+personInfo.get("POLICE_STATION ") + "', "+
+" '"+personInfo.get("DISTRICT ")       + "', ";
+
+" '"+personInfo.get("LI")       + "', "  +
+" '"+personInfo.get("LM")       + "', "  +
+" '"+personInfo.get("LF")       + "', "  +
+" '"+personInfo.get("LL")       + "', "  +
+" '"+personInfo.get("LT")       + "', "  +
+" '"+personInfo.get("RI")       + "', "  +
+" '"+personInfo.get("RM")       + "', "  +
+" '"+personInfo.get("RF")       + "', "  +
+" '"+personInfo.get("RL")       + "', "  +
+" '"+personInfo.get("RT")       + "', "  +
+
+
+LI,LM,LR,LL,RT,RI,RM,RR,RL,RT
+
+
+(REFERENCE_NO, CREATION_DATE, CREATED_BY, DATE_OF_ENTRY, MACHINE_ID, NAME_ENG, FATHER_NAME_ENG, MOTHER_NAME_ENG, DATE_OF_BIRTH, PLACE_OF_BIRTH, GENDER, RELIGION, NATIONALITY, AGE, COUNTRY, ADDRESS, VILLAGE, POLICE_STATION, DISTRICT)
+
+LI varchar,
+LM varchar,
+LF varchar,
+LL varchar,
+LT varchar,
+RI varchar,
+RM varchar,
+RF varchar,
+RL varchar,
+RT varchar,
