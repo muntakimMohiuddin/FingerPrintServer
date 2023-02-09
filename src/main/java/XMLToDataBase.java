@@ -32,7 +32,7 @@ public class XMLToDataBase {
     }
 
     public static void main(String[] args) throws ParserConfigurationException, IOException, SAXException, SQLException {
-        String dir = "/home/muntakim/rohinga_fingers";
+        String dir = "/home/drs-hive/data/rohinga_fingers";
         String[] dateDirs = listDir(dir);
         PGManager pgManager = new PGManager();
         for (String dateDir : dateDirs) {
@@ -45,6 +45,7 @@ public class XMLToDataBase {
                         HashMap<String,String> personInfo=XMLParser.parse(personFile);
                         for(String acc:new String[]{"LI","LM","LR","LL","LT","RI","RM","RR","RL","RT"})
                         personInfo.put(acc,personDir+"/"+personID+"_"+acc+".wsq");
+                        personInfo.put("PHOTO",personDir+"/"+personID+"_photo.jpg");
                         pgManager.hashMapToPG(personInfo);
                         System.out.println(personInfo);
                     }

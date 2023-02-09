@@ -11,7 +11,7 @@ public class TemplateExtractor {
     }
 
     public static TemplatePathPair[] extract(String templateDir) throws IOException, ClassNotFoundException {
-        int loadfactor = 200;
+        int loadfactor = 1;
         String candidatePaths[] = listDir(templateDir);
         TemplatePathPair[] candidates = new TemplatePathPair[candidatePaths.length * loadfactor];
         for (int i = 0; i < candidatePaths.length; i++) {
@@ -22,7 +22,7 @@ public class TemplateExtractor {
                 byte[] templateAsByteArray = (byte[]) objectInputStream.readObject();
                 for (int j = 0; j < loadfactor; j++) {
                     candidates[i * loadfactor + j] = new TemplatePathPair(candidatePath,
-                            new SourceAFISFingerprintTemplate(templateAsByteArray));
+                            new Template(templateAsByteArray));
                 }
                 objectInputStream.close();
             } catch (Exception e) {
@@ -57,6 +57,4 @@ public class TemplateExtractor {
             throw new RuntimeException();
         }
     }
-
-
 }

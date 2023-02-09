@@ -12,30 +12,31 @@ public class PGManager {
             }
         }
         Statement statement = connection.createStatement();
-        String sql = "INSERT INTO person_info.person_info " +
+        String sql = "INSERT INTO person_info " +
                 "(REFERENCE_NO, CREATION_DATE, CREATED_BY, DATE_OF_ENTRY, MACHINE_ID, NAME_ENG, FATHER_NAME_ENG, " +
                 "MOTHER_NAME_ENG, DATE_OF_BIRTH, PLACE_OF_BIRTH, GENDER, RELIGION, NATIONALITY, AGE, " +
-                "COUNTRY, ADDRESS, VILLAGE, POLICE_STATION, DISTRICT, LI, LM, LR, LL, LT, RI, RM, RR, RL, RT)" +
+                "COUNTRY, ADDRESS, VILLAGE, POLICE_STATION, DISTRICT, PHOTO ,LI, LM, LR, LL, LT, RI, RM, RR, RL, RT)" +
                 " VALUES (" +
                 " '" + personInfo.get("REFERENCE_NO") + "', " +
                 " '" + personInfo.get("CREATION_DATE") + "', " +
                 " '" + personInfo.get("CREATED_BY") + "', " +
                 " '" + personInfo.get("DATE_OF_ENTRY") + "', " +
                 " '" + personInfo.get("MACHINE_ID") + "', " +
-                " '" + personInfo.get("NAME_ENG ") + "', " +
+                " '" + personInfo.get("NAME_ENG") + "', " +
                 " '" + personInfo.get("FATHER_NAME_ENG") + "', " +
                 " '" + personInfo.get("MOTHER_NAME_ENG") + "', " +
                 " '" + personInfo.get("DATE_OF_BIRTH") + "', " +
-                " '" + personInfo.get("PLACE_OF_BIRTH ") + "', " +
+                " '" + personInfo.get("PLACE_OF_BIRTH") + "', " +
                 " '" + personInfo.get("GENDER") + "', " +
-                " '" + personInfo.get("RELIGION ") + "', " +
-                " '" + personInfo.get("NATIONALITY ") + "', " +
+                " '" + personInfo.get("RELIGION") + "', " +
+                " '" + personInfo.get("NATIONALITY") + "', " +
                 " " + personInfo.get("AGE") + ", " +
                 " '" + personInfo.get("COUNTRY") + "', " +
                 " '" + personInfo.get("ADDRESS") + "', " +
                 " '" + personInfo.get("VILLAGE") + "', " +
-                " '" + personInfo.get("POLICE_STATION ") + "', " +
-                " '" + personInfo.get("DISTRICT ") + "', " +
+                " '" + personInfo.get("POLICE_STATION") + "', " +
+                " '" + personInfo.get("DISTRICT") + "', " +
+                " '"+personInfo.get("PHOTO")       + "', "  +
                 " '"+personInfo.get("LI")       + "', "  +
                 " '"+personInfo.get("LM")       + "', "  +
                 " '"+personInfo.get("LR")       + "', "  +
@@ -57,7 +58,7 @@ public class PGManager {
         try {
             Class.forName("org.postgresql.Driver");
             connection = DriverManager
-                    .getConnection("jdbc:postgresql://localhost:5432/rohinga",
+                    .getConnection("jdbc:postgresql://localhost:5432/rohinga_database",
                             "postgres", "mysecretpassword");
         } catch (Exception e) {
             e.printStackTrace();
