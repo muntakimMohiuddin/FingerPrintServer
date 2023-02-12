@@ -32,7 +32,7 @@ public class XMLToDataBase {
     }
 
     public static void main(String[] args) throws ParserConfigurationException, IOException, SAXException, SQLException {
-        String dir = "/home/drs-hive/data/rohinga_fingers";
+        String dir = "/home/drs-hive/data/fingers";
         String[] dateDirs = listDir(dir);
         PGManager pgManager = new PGManager();
         for (String dateDir : dateDirs) {

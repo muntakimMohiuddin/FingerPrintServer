@@ -59,7 +59,7 @@ public class Dumper {
     }
 
     public static void main(String[] args) throws IOException {
-        String candidateDir = "/home/drs-hive/data/rohinga_fingers";
+        String candidateDir = "/home/drs-hive/data/fingers";
         String[] candidatePaths = getFingerPrintPaths(candidateDir);
         String templateDir="template";
         for (int i = 0; i < candidatePaths.length; i++) {
