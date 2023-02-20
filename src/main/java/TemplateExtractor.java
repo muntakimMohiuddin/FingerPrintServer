@@ -11,7 +11,7 @@ public class TemplateExtractor {
     }
 
     public static TemplatePathPair[] extract(String templateDir) throws IOException, ClassNotFoundException {
-        int loadfactor = 1;
+        int loadfactor = 4;
         String candidatePaths[] = listDir(templateDir);
         TemplatePathPair[] candidates = new TemplatePathPair[candidatePaths.length * loadfactor];
         for (int i = 0; i < candidatePaths.length; i++) {

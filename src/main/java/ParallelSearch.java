@@ -69,9 +69,9 @@ public class ParallelSearch extends RecursiveAction {
         } else {
             computeDirectly();
             status[id] = 0;
-            for (int s : status)
-                System.out.print(s);
-            System.out.println();
+//            for (int s : status)
+//                System.out.print(s);
+//            System.out.println();
         }
     }
 

@@ -24,15 +24,14 @@ public class XMLToDataBase {
             }
 
             return listString;
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             System.out.println(dirPath);
             throw new RuntimeException();
         }
     }
 
     public static void main(String[] args) throws ParserConfigurationException, IOException, SAXException, SQLException {
-        String dir = "/home/drs-hive/data/fingers";
+        String dir = "/home/drs-hive/data/rohinga_fingers";
         String[] dateDirs = listDir(dir);
         PGManager pgManager = new PGManager();
         for (String dateDir : dateDirs) {
@@ -40,12 +39,19 @@ public class XMLToDataBase {
             for (String personDir : personDirs) {
                 String personID = personDir.split("/")[personDir.split("/").length - 1];
                 String[] personFiles = listDir(personDir);
-                for(String personFile:personFiles){
-                    if(personFile.endsWith(".xml")){
-                        HashMap<String,String> personInfo=XMLParser.parse(personFile);
-                        for(String acc:new String[]{"LI","LM","LR","LL","LT","RI","RM","RR","RL","RT"})
-                        personInfo.put(acc,personDir+"/"+personID+"_"+acc+".wsq");
-                        personInfo.put("PHOTO",personDir+"/"+personID+"_photo.jpg");
+                for (String personFile : personFiles) {
+                    if (personFile.endsWith(".xml")) {
+                        HashMap<String, String> personInfo = XMLParser.parse(personFile);
+                        for (String acc : new String[]{"LI", "LM", "LR", "LL", "LT", "RI", "RM", "RR", "RL", "RT"}) {
+                            String filename = personDir + "/" + personID + "_" + acc + ".wsq";
+                            if (new File(filename).exists()) {
+                                personInfo.put(acc, filename);
+                            }
+                        }
+                        String filename = personDir + "/" + personID + "_photo.jpg";
+                        if (new File(filename).exists()) {
+                            personInfo.put("PHOTO",filename);
+                        }
                         pgManager.hashMapToPG(personInfo);
                         System.out.println(personInfo);
                     }
