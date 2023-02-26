@@ -11,9 +11,10 @@ public class TemplateExtractor {
     }
 
     public static TemplatePathPair[] extract(String templateDir) throws IOException, ClassNotFoundException {
-        int loadfactor = 4;
+        int loadfactor = 1;
         String candidatePaths[] = listDir(templateDir);
         TemplatePathPair[] candidates = new TemplatePathPair[candidatePaths.length * loadfactor];
+        double beginningTime = System.nanoTime();
         for (int i = 0; i < candidatePaths.length; i++) {
             try {
                 String candidatePath = candidatePaths[i % candidatePaths.length];
@@ -29,6 +30,7 @@ public class TemplateExtractor {
                 System.out.println();
             }
         }
+        System.out.println("template loaded in " + (System.nanoTime() - beginningTime) / 1000000000);
 
         for (int i = 0; i < candidates.length; i++) {
             if (candidates[i] == null) {
